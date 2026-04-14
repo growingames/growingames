@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Growin organiza rotina, atividades terapêuticas gamificadas e acompanhamento visual para apoiar o neurodesenvolvimento infantil.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#0E6FD8">
+  <meta name="color-scheme" content="light">
+  <meta name="application-name" content="Growin">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Growin | Rotina e atividades para neurodesenvolvimento infantil">
+  <meta property="og:description" content="Rotina visual, atividades adaptativas e progresso semanal para famílias acompanharem o desenvolvimento da criança.">
+  <meta property="og:image" content="icons/Icon-512.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Growin | Apoio ao neurodesenvolvimento infantil">
+  <meta name="twitter:description" content="Atividades gamificadas, rotina visual e acompanhamento simples para famílias.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Growin">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>Growin | Rotina e atividades para neurodesenvolvimento infantil</title>
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <script>
+    (function () {
+      var hash = window.location.hash;
+      if (!hash || !hash.startsWith('#/')) {
+        return;
+      }
+
+      var baseUri = new URL(document.baseURI);
+      var legacyRoute = hash.substring(1);
+      var queryIndex = legacyRoute.indexOf('?');
+      var routePath =
+        queryIndex >= 0 ? legacyRoute.substring(0, queryIndex) : legacyRoute;
+      var routeQuery =
+        queryIndex >= 0 ? legacyRoute.substring(queryIndex) : '';
+      var basePath = baseUri.pathname.replace(/\/$/, '');
+      var targetPath =
+        routePath === '/' ? baseUri.pathname : basePath + routePath;
+      var targetUrl =
+        baseUri.origin + targetPath + (routeQuery || window.location.search);
+
+      window.location.replace(targetUrl);
+    })();
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
