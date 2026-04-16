@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#0E6FD8">
+  <meta name="color-scheme" content="light">
+  <meta name="application-name" content="Growin">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <title>Growin | Página não encontrada</title>
+  <script>
+    (function () {
+      var path = window.location.pathname || '/';
+      var isAssetRequest = /\.[a-z0-9]{2,8}$/i.test(path);
+      var isAppRoute = path !== '/' && !isAssetRequest;
+
+      if (!isAppRoute) {
+        return;
+      }
+
+      var params = new URLSearchParams(window.location.search);
+      if (!params.has('returnRoute')) {
+        params.set('returnRoute', path);
+      }
+
+      var target = window.location.origin + '/?' + params.toString();
+      if (window.location.hash) {
+        target += window.location.hash;
+      }
+
+      window.location.replace(target);
+    })();
+  </script>
+  <style>
+    :root {
+      --blue: #0e6fd8;
+      --ink: #102033;
+      --muted: #5f6f82;
+      --line: #dbe7f4;
+      --soft: #eef7ff;
+      --yellow: #ffd66b;
+      --green: #35b779;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      min-height: 100%;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        linear-gradient(180deg, #f5fbff 0%, #ffffff 48%, #f2fbf7 100%);
+    }
+
+    main {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+    }
+
+    .content {
+      width: min(100%, 720px);
+      display: grid;
+      gap: 26px;
+      text-align: center;
+      justify-items: center;
+    }
+
+    .mark {
+      width: 84px;
+      height: 84px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: 0 16px 40px rgba(14, 111, 216, 0.12);
+    }
+
+    .mark svg {
+      width: 58px;
+      height: 58px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 42px;
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    a {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--blue);
+      font-weight: 700;
+      text-decoration: none;
+      background: #ffffff;
+    }
+
+    a.primary {
+      border-color: var(--blue);
+      color: #ffffff;
+      background: var(--blue);
+    }
+
+    .note {
+      padding: 10px 14px;
+      border: 1px solid #cfead9;
+      border-radius: 8px;
+      color: #256b48;
+      background: #f0fff6;
+      font-size: 14px;
+    }
+
+    @media (max-width: 520px) {
+      main {
+        padding: 22px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+
+      .actions,
+      a {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="content" aria-labelledby="title">
+      <div class="mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" role="img">
+          <rect x="8" y="10" width="48" height="44" rx="8" fill="#eef7ff"/>
+          <path d="M20 39c5 8 19 8 24 0" fill="none" stroke="#0e6fd8" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="24" cy="28" r="4" fill="#35b779"/>
+          <circle cx="40" cy="28" r="4" fill="#ffd66b"/>
+          <path d="M18 14l5-7 5 7" fill="none" stroke="#0e6fd8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div>
+        <h1 id="title">Página não encontrada</h1>
+        <p>Esse endereço não abriu uma tela da Growin. Você pode voltar para o início ou tentar novamente pela área principal.</p>
+      </div>
+      <div class="actions" aria-label="Ações">
+        <a class="primary" href="/">Ir para o início</a>
+        <a href="/?returnRoute=%2Fpayments">Abrir pagamentos</a>
+      </div>
+      <p class="note">Se você veio de um pagamento, a Growin vai tentar recuperar a rota automaticamente.</p>
+    </section>
+  </main>
+</body>
+</html>
