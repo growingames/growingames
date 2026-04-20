@@ -43,10 +43,163 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
+  <!-- cropperjs -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.js"></script>
+  <script>
+    (function () {
+      var cropper = window.Cropper;
+      if (!cropper || typeof cropper === 'function') {
+        return;
+      }
+
+      if (typeof cropper.default === 'function') {
+        window.Cropper = cropper.default;
+        return;
+      }
+
+      if (typeof cropper.Cropper === 'function') {
+        window.Cropper = cropper.Cropper;
+      }
+    })();
+  </script>
+
   <title>Growin | Rotina e atividades para neurodesenvolvimento infantil</title>
   <link rel="manifest" href="manifest.json">
+  <style>
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      background: #f5f8ff;
+      color: #173d6b;
+      font-family: "Nunito", Arial, sans-serif;
+    }
+
+    body.growin-ready #growin-web-loader {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    #growin-web-loader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.94), transparent 55%),
+        linear-gradient(180deg, #f7fbff 0%, #eef5ff 100%);
+      transition: opacity 220ms ease, visibility 220ms ease;
+    }
+
+    .growin-web-loader__panel {
+      width: min(100%, 320px);
+      padding: 24px 24px 22px;
+      border-radius: 28px;
+      border: 1.6px solid #e7d7a6;
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 18px 40px rgba(14, 111, 216, 0.12);
+      text-align: center;
+    }
+
+    .growin-web-loader__halo {
+      width: 132px;
+      height: 48px;
+      margin: 0 auto 16px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: rgba(255, 214, 107, 0.14);
+    }
+
+    .growin-web-loader__dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      animation: growin-loader-bounce 980ms infinite ease-in-out;
+      box-shadow: 0 8px 14px rgba(23, 61, 107, 0.12);
+    }
+
+    .growin-web-loader__dot--1 {
+      background: #ef6b6b;
+      animation-delay: 0ms;
+    }
+
+    .growin-web-loader__dot--2 {
+      background: #35b26f;
+      animation-delay: 120ms;
+    }
+
+    .growin-web-loader__dot--3 {
+      background: #f6c94d;
+      animation-delay: 240ms;
+    }
+
+    .growin-web-loader__dot--4 {
+      background: #0e6fd8;
+      animation-delay: 360ms;
+    }
+
+    .growin-web-loader__title {
+      margin: 0;
+      font-size: 28px;
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: 0;
+      color: #173d6b;
+    }
+
+    .growin-web-loader__subtitle {
+      margin: 10px 0 0;
+      font-size: 15px;
+      line-height: 1.4;
+      font-weight: 700;
+      color: #56749d;
+    }
+
+    @keyframes growin-loader-bounce {
+      0%, 100% {
+        transform: translateY(0) scale(0.82);
+        opacity: 0.44;
+      }
+
+      50% {
+        transform: translateY(-8px) scale(1.08);
+        opacity: 1;
+      }
+    }
+  </style>
+  <script>
+    window.addEventListener('flutter-first-frame', function () {
+      document.body.classList.add('growin-ready');
+      window.setTimeout(function () {
+        var loader = document.getElementById('growin-web-loader');
+        if (loader) {
+          loader.remove();
+        }
+      }, 260);
+    });
+  </script>
 </head>
 <body>
+  <div id="growin-web-loader" aria-live="polite" aria-label="Carregando Growin">
+    <div class="growin-web-loader__panel">
+      <div class="growin-web-loader__halo" aria-hidden="true">
+        <span class="growin-web-loader__dot growin-web-loader__dot--1"></span>
+        <span class="growin-web-loader__dot growin-web-loader__dot--2"></span>
+        <span class="growin-web-loader__dot growin-web-loader__dot--3"></span>
+        <span class="growin-web-loader__dot growin-web-loader__dot--4"></span>
+      </div>
+      <p class="growin-web-loader__title">Growin</p>
+      <p class="growin-web-loader__subtitle">Atualizando sua sessão...</p>
+    </div>
+  </div>
   <script>
     (function () {
       var hash = window.location.hash;
